@@ -49,7 +49,7 @@ fasilitas mailing
 7. Apa perbedaan dari @RequestParam dan @PathVariable? Kapan sebaiknya
 menggunakan @RequestParam atau @PathVariable?
 @RequestParam digunakan untuk menerima query parameter pada method di Controller 
-@PathVariable digunakan untuk mendapatkan value apapun yang ter-embed di URL 
+@PathVariable digunakan untuk mendapatkan sebuah value yang ter-embed di URL.
 
 Jika suatu project menggunakan banyak path dan ingin menghindari conflict
 antar path, @RequestParam dapat digunakan. Sebaliknya, jika path yang digunakan
