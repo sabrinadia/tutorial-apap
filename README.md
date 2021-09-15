@@ -3,6 +3,61 @@
 
 * Nadia Sabrina - 1906399606 - A
 
+----
+
+## Tutorial 2
+1. Cobalah untuk menambahkan sebuah Kebun dengan mengakses link
+berikut setelah menjalankan program: http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut
+dapat terjadi
+
+Bisa dilihat bahwa url tersebut mengirimkan parameter berupa id, nama, alamat, dan no telepon
+dari sebuah kebun safari. Seluruh parameter yang diberikan akan diproses oleh controller 
+yaitu dengan assign setiap string ke valuenya masing-masing. Kemudian controller akan
+membuat objek kebun safari baru dengan atribut yang didapatkan dari parameter. Setelah
+pembuatan objek baru berhasil dilakukan, controller akan merender halaman html "add-kebun-safari"
+sebagai respond. HTML tersebut berisikan ucapan yang menunjukkan objek berhasil ditambahkan.
+
+2. Menurut kamu anotasi @Autowired pada class Controller tersebut
+merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja
+@Autowired tersebut dalam konteks service dan controller yang telah kamu buat
+
+@Autowired merupakan implementasi dari konsep dependency injection. Pada
+konteks service dan controller, @Autowired mempunyai fitur component-scan yang di mana
+@Autowired akan melihat isi package yang kita sebutkan yang akan dilanjutkan dengan pencarian
+class yang mengandung anotasi @controller, service, component. 
+Setelah ditemukan, @Autowired akan men-inject seluruh dependency yang diperlukan class tersebut.
+
+Dalam case ini, @Autowired yang dimasukkan ke kelas controller akan melakukan component-scan
+ke kelas service. 
+
+3. Cobalah untuk menambahkan sebuah Kebun dengan mengakses link
+berikut:
+http://localhost:8080/kebun-safari/add?id=1&nama=Papa%20APAP&alamat=Maung%
+20Fasilkom Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+
+Halaman akan menunjukkan adanya error di karenakan pada method addKebunSafari, 
+param request noTelepon diset menjadi required=true yang berarti wajib dikirimkan. 
+Namun, url tersebut tidak mencantumkan no telepon yang menyebabkan error. 
+
+4. Jika Papa APAP ingin melihat Kebun Safari dengan nama Papa APAP,
+link apa yang harus diakses?
+
+Link yang harus diakses adalah http://localhost:8080/kebun-safari?id=1 
+karena Kebun Safari dengan nama Papa Apap mempunyai id=1 dan pencarian 
+tersebut dapat dilakukan dengan menggunakan method getKebunSafariById dengan
+syarat pemberian id di url harus dipenuhi. 
+
+5. Pertanyaan 5: Tambahkan 1 contoh Kebun Safari lainnya sesukamu. Lalu cobalah
+untuk mengakses http://localhost:8080/ , apa yang akan ditampilkan? Sertakan juga
+bukti screenshotmu.
+
+yang ditampilkan adalah daftar kebun safari yang telah dimasukkan dan atribut tiap
+objek kebun safari. 
+
+View All![View All](https://ibb.co/6t3fhNX)
+View All![View All](https://ibb.co/vDh5pYL)
+
+
 ---
 ## Tutorial 1
 ### What I have learned today
