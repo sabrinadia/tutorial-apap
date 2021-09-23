@@ -59,11 +59,21 @@ public class CabangServiceImpl implements CabangService {
         int value1 = sekarang.compareTo(buka);
         int value2 = sekarang.compareTo(tutup);
 
-        if(value1 < 0 || value2 > 0){
+        if( value1< 0 && value2 < 0  ){
+            return true;
+        }
+        else if(value1 >0 && value2 >0 && buka.compareTo(tutup) < 0){
+            return true;
+        }
+        else if( value1< 0 && value2 > 0 && buka.compareTo(tutup) >0  ){
             return true;
         }
 
         return false;
 
+
+
     }
+
+
 }
