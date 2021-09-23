@@ -9,12 +9,12 @@
 1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model
 (@AllArgsConstructor, @NoArgsConstructor, @Setter, @Getter, @Entity, @Table)
 
-@AllArgsConstructor : membuat constructor dengan dengan 1 argument pada setiap field pada class yang memiliki anotasi
-@NoArgsConstructor : membuat constructor tanpa argument pada class yang memiliki anotasi tersebut
-@Setter : membuat method setter pada setiap field yang dimiliki class 
-@Getter : membuat method getter pada setiap field yang dimiliki class
-@Entity : class yang mempunyai anotasi tersebut berarti dapat dipetakan ke sebuah table 
-@Table  : anotasi yang dapat diguanakan untuk menspesifikasikan detail dari table yang akan diimplementasikan ke entity
+@AllArgsConstructor : membuat constructor dengan dengan 1 argument pada setiap field pada class yang memiliki anotasi\
+@NoArgsConstructor : membuat constructor tanpa argument pada class yang memiliki anotasi tersebut\
+@Setter : membuat method setter pada setiap field yang dimiliki class\
+@Getter : membuat method getter pada setiap field yang dimiliki class\
+@Entity : class yang mempunyai anotasi tersebut berarti dapat dipetakan ke sebuah table\ 
+@Table  : anotasi yang dapat diguanakan untuk menspesifikasikan detail dari table yang akan diimplementasikan ke entity\
 
 2. Pada class CabangDB, terdapat method findByNoCabang, apakah kegunaan dari method
     tersebut?
@@ -22,8 +22,9 @@
     findByNoCabang melakukan filtering pencarian objek CabangModel berdasarkan atribut noCabangnya 
     
 3. Jelaskan perbedaan kegunaan dari anotasi @JoinTable dan @JoinColumn
-    @JoinTable menyimpan id dari kedua table pada table yang terpisah 
-    @JoinColumn menyimpan id dari entity lain di column yang baru pada table yang sama
+
+    @JoinTable menyimpan id dari kedua table pada table yang terpisah \
+    @JoinColumn menyimpan id dari entity lain di column yang baru pada table yang sama\
     
 
 4. Pada class PegawaiModel, digunakan anotasi @JoinColumn pada atribut cabang, apa
@@ -42,6 +43,7 @@
     
    
 5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+
     Jika terdapat 2 entitas yang berhubungan, misalnya dalam case ini cabang yang memiliki pegawai,
     FetchType.EAGER akan memuat objek pegawai bersamaan dengan dimuatnya objek cabang sedangkan 
     FetchType.LAZY hanya akan memuat objek pegawai hanya jika method getPegawai() dipanggil. 
