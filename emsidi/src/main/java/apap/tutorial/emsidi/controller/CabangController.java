@@ -76,7 +76,7 @@ public class CabangController {
         return "update-cabang";
 
     }
-
+//Tutorial
     @GetMapping("/cabang/CabangViewAll")
     public String cabangViewAll(Model model){
         List<CabangModel> listCabang = cabangService.getCabangList();

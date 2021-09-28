@@ -48,6 +48,8 @@ public class PegawaiController {
         return "add-pegawai";
     }
 
+    //Tutorial
+
     @GetMapping("/pegawai/update/{noCabang}/{noPegawai}")
     public String updatePegawaiForm(
            @PathVariable Long noCabang,
@@ -61,7 +63,6 @@ public class PegawaiController {
             model.addAttribute("pegawai", pegawai);
             model.addAttribute("noCabang", noCabang);
             return "form-update-pegawai";
-
 
         }
 

@@ -19,6 +19,8 @@ public class CabangServiceImpl implements CabangService {
 
     @Override
     public void addCabang(CabangModel cabang){
+
+
         cabangDb.save(cabang);
     }
 

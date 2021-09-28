@@ -21,6 +21,8 @@ public class PegawaiServiceImpl implements  PegawaiService {
     public void addPegawai(PegawaiModel pegawai){
 
         pegawaiDb.save(pegawai);
+
+
     }
 
     @Override
@@ -46,10 +48,10 @@ public class PegawaiServiceImpl implements  PegawaiService {
         int value1 = sekarang.compareTo(buka);
         int value2 = sekarang.compareTo(tutup);
 
-        if( value1< 0 && value2 < 0  ){
+        if( value1< 0 && value2 < 0  ){  //op 9 buka 1 buka 2
             return true;
         }
-        else if(value1 >0 && value2 >0 && buka.compareTo(tutup) < 0){
+        else if(value1 >0 && value2 >0 && buka.compareTo(tutup) < 0){ // op 18 buka 17 tutup 9
             return true;
         }
         else if( value1< 0 && value2 > 0 && buka.compareTo(tutup) >0  ){
