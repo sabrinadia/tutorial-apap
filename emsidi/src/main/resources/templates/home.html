@@ -17,7 +17,14 @@
                 <a class="btn btn-primary" href="/cabang/add">Tambah Cabang</a>
                 <a class="btn btn-primary" href="/cabang/viewall">Lihat Semua Cabang</a>
                 <a class="btn btn-primary" href="/cabang/CabangViewAll">ViewAll</a>
+
+                <form th:action="@{/cabang/viewcabang" th:object="${cabang}" method="POST">
+                    <input class="form-control" type="text" name="noCabang" th:value="*{cabang.noCabang}"/>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+
             </div>
+
         </div>
     </div>
 </div>
