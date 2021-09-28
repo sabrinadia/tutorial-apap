@@ -106,23 +106,6 @@ public class CabangController {
 
 
 
-    @GetMapping("/cabang/viewcabang")
-    public String viewCabang(
-            @RequestParam(value="noCabang") Long noCabang,
-            Model model
-    ){
-        CabangModel cabang = cabangService.getCabangByNoCabang(noCabang);
-        List<PegawaiModel> listPegawai = cabang.getListPegawai();
-
-        model.addAttribute("cabang", cabang);
-        model.addAttribute("listPegawai", listPegawai);
-
-        return "view-cabang";
-    }
-
-
-
-
 
 
 

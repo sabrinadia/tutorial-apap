@@ -11,9 +11,13 @@
 <div class="container">
     <h2>Daftar Seluruh Cabang Emsidi</h2>
     <br>
+
+
     <div th:each="cabang : ${listCabang}" class="card m-4 p-4">
         <div class="card-body">
             <div class="justify-content-center">
+
+
                 <p th:text="'Nomor Cabang : ' + ${cabang.noCabang}"></p>
                 <p th:text="'Nama Cabang : ' + ${cabang.namaCabang}"></p>
                 <p th:text="'Alamat Cabang : ' + ${cabang.alamatCabang}"></p>
