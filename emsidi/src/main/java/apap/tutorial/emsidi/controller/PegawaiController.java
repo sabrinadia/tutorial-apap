@@ -13,11 +13,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
 
+import java.time.LocalTime;
+
 @Controller
 public class PegawaiController {
     @Qualifier("pegawaiServiceImpl")
     @Autowired
     PegawaiService pegawaiService;
+
 
     @Qualifier("cabangServiceImpl")
     @Autowired
@@ -101,6 +104,24 @@ public class PegawaiController {
         return "delete-restriction";
 
     }
+
+    @PostMapping("/pegawai/delete")
+    public String deletePegawaiSubmit(
+            @ModelAttribute CabangModel cabang,
+            Model model
+    ){
+        LocalTime now = LocalTime.now();
+        if(now.isBefore(cabang.getWaktuBuka())|| now.isAfter(cabang.getWaktuTutup())){
+            for(PegawaiModel pegawai: cabang.getListPegawai()){
+                pegawaiService.deletePegawai(pegawai);
+            }
+            model.addAttribute("noCabang", cabang.getNoCabang());
+            return "delete-pegawai";
+
+        }
+        return "delete-restriction";
+    }
+
 
 
 

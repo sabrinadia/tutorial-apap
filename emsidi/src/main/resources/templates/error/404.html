@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-    <title>Emsidi</title>
+    <meta charset="UTF-8">
+    <title>404 not found</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
     <object th:include="fragments/fragment :: css" th:remove="tag"></object>
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
@@ -13,18 +14,13 @@
     <script
             src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
+
+</head>
 <body>
-<nav th:replace="fragments/fragment :: navbar('Home')"></nav>
-<div class="container">
-    <div class="card m-4 p-4">
-        <div class="card-body">
-            <div class="justify-content-center">
-                <h2 th:text="'Pegawai dengan nomor ' + ${noPegawai} + ' berhasil diubah'"></h2>
-<!--                <h2 th:text="'Pegawai dengan nomor  berhasil diubah'"></h2>-->
-                <a class="btn btn-primary" href="/">Kembali ke Home</a>
-            </div>
-        </div>
-    </div>
+<nav th:replace="fragments/fragment :: navbar('404')"></nav>
+<div class="container-fluid">
+    <h2> Halaman tidak ditemukan </h2>
+    <a th:href="@{/}">Kembali ke home</a>
 </div>
 
 </body>
