@@ -22,6 +22,7 @@ public class CabangServiceImpl implements CabangService {
 
 
         cabangDb.save(cabang);
+
     }
 
     @Override

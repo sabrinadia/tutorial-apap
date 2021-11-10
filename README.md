@@ -4,6 +4,21 @@
 * Nadia Sabrina - 1906399606 - A
 
 ----
+## Tutorial 4
+1. Jelaskan perbedaan th:include dan th:replace!
+th:include akan memasukkan konten dari sebuah fragment ke dalam parent tagnya, contoh parent tag: <div>
+th:replace akan menggantikan parent tag yang dimiliki menjadi konten dari fragmen 
+
+2. Jelaskan apa fungsi dari th:object!
+th:object digunakan untuk menspesifikasikan sebuah objek yang mana atribut dari objek tersebut
+akan dikirim ke dalam tag yang menyertainya. 
+
+3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?
+${...} digunakan untuk mendeklarasikan sebuah variable 
+*{...} juga dapat digunakan untuk mendeklarasikan sebuah variable namun expression tersebut 
+hanya akan dieksekusi pada object yang sebelumnya telah dipilih
+
+----
 ## Tutorial 3
 
 1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model
