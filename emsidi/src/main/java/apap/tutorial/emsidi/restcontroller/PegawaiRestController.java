@@ -107,7 +107,15 @@ public class PegawaiRestController {
     }
 
 
-
-
+    @GetMapping(value="/listpegawai/{genderPegawai}")
+    private List<PegawaiModel> retrievePegawai(@PathVariable("genderPegawai") int genderPegawai){
+        try{
+            return pegawaiRestService.retrieveListPegawaiByGender(genderPegawai);
+        } catch(NoSuchElementException e){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Pegawai dengan gender bervalue " + String.valueOf(genderPegawai) + " Not Found."
+            );
+        }
+    }
 
 }

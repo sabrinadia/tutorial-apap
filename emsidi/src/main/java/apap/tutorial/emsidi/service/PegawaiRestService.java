@@ -13,4 +13,5 @@ public interface PegawaiRestService {
     void deletePegawai(Long noPegawai);
     Mono<String> getStatus(Long noPegawai);
     PegawaiModel updateAge(Long noPegawai, PegawaiModel pegawaiUpdate);
+    List<PegawaiModel> retrieveListPegawaiByGender(int gender);
 }

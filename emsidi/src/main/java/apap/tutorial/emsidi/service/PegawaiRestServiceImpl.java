@@ -39,6 +39,22 @@ public class PegawaiRestServiceImpl implements PegawaiRestService{
     }
 
     @Override
+    public List<PegawaiModel> retrieveListPegawaiByGender(int gender) {
+
+        List<PegawaiModel> listpegawai = pegawaiDb.findAll();
+        List<PegawaiModel> result = new ArrayList<>();
+
+            for (PegawaiModel a: listpegawai
+            ) {
+                if(a.getJenisKelamin() == gender){
+                    result.add(a);
+                }
+
+            }
+            return result;
+    }
+
+    @Override
     public PegawaiModel getPegawaiByNoPegawai(Long noPegawai) {
         Optional<PegawaiModel> pegawai = pegawaiDb.findByNoPegawai(noPegawai);
         if(pegawai.isPresent()){
@@ -93,6 +109,7 @@ public class PegawaiRestServiceImpl implements PegawaiRestService{
             final String uri = "https://api.agify.io/?name=" + String.valueOf(pegawai.getNamaPegawai().split(" ")[0]);
             RestTemplate restTemplate = new RestTemplate();
             String result = restTemplate.getForObject(uri, String.class);
+            System.out.println("RESULT:" + result);
             Integer umur = Integer.parseInt(result.split(",")[1].substring(6, result.split(",")[1].length()));
             pegawai.setUmur(umur);
             pegawaiDb.save(pegawai);
