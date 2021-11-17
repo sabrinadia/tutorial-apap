@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface CabangDb extends JpaRepository<CabangModel, Long> {
     Optional<CabangModel> findByNoCabang(Long noCabang);
-    //List<CabangModel> findByNamaCabangOrderByNamaCabang(String Nama);
+    List<CabangModel> findAllByOrderByNamaCabang();
 
 }
 

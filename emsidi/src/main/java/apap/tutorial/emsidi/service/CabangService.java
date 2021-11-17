@@ -13,5 +13,6 @@ public interface CabangService {
     CabangModel getCabangByNoCabang(Long noCabang);
     boolean deleteCabang(CabangModel cabang);
     boolean cekTutup(CabangModel cabang);
+    List<CabangModel> getCabangListSorted();
 
 }

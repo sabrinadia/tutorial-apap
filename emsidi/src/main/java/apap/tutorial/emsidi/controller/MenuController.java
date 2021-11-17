@@ -1,15 +1,17 @@
 package apap.tutorial.emsidi.controller;
 
+import apap.tutorial.emsidi.model.CabangModel;
 import apap.tutorial.emsidi.model.MenuModel;
+import apap.tutorial.emsidi.model.PegawaiModel;
 import apap.tutorial.emsidi.service.CabangService;
 import apap.tutorial.emsidi.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class MenuController {
@@ -24,7 +26,7 @@ public class MenuController {
     }
 
     @PostMapping("/menu/add")
-    public String addFilmSubmit(
+    public String addMenuSubmit(
             @ModelAttribute MenuModel menu,
             Model model
     ){
@@ -39,5 +41,17 @@ public class MenuController {
     ){
         model.addAttribute("listMenu", menuService.getListMenu());
         return "viewall-menu";
+    }
+
+    @GetMapping("/menu/view/{namaMenu}")
+    public String viewDetailMenu(
+            @PathVariable String namaMenu,
+            Model model
+    ) {
+        MenuModel menu = menuService.getMenuByNamaMenu(namaMenu);
+
+        model.addAttribute("menu", menu);
+
+        return "view-menu";
     }
 }
