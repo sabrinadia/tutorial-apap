@@ -4,6 +4,32 @@
 * Nadia Sabrina - 1906399606 - A
 
 ----
+## Tutorial 5 
+
+1. Apa itu Postman? Apa kegunaannya?
+postman adalah sebuah aplikasi atau ekstensi yang berfungsi sebagai REST client 
+dan digunakan dalam pengujian website, seperti testing rest, testing API, dll.
+
+2. Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty
+Anotasi @JsonIgnoreProperties digunakan pada level class untuk menandakan 
+property atau kumpulan property yang perlu diabaikan. 
+Anotasi @JsonProperty berfungsi untuk memetakan nama property yang diberikan
+oleh JSON terhadap property terkait di kelas java. 
+
+3. Apa kegunaan atribut WebClient?
+WebClient dapat dimanfaatkan untuk melakukan HTTP request ke REST service 
+yang ada di luar aplikasi. 
+
+4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?
+ResponseEntity merepresentasikan seluruh HTTP response yang terdiri dari status code, 
+headers, dan body agar kita dapat mengkonfigurasikan HTTP response. 
+
+BindingResult adalah sebuah interface menentukan bagaimana objek yang menyimpan hasil 
+validasi harus menyimpan dan mengambil hasil validasi seperti errors, percobaan 
+bind yang disallowed fields, dll. 
+
+
+----
 ## Tutorial 4
 1. Jelaskan perbedaan th:include dan th:replace!
 th:include akan memasukkan konten dari sebuah fragment ke dalam parent tagnya, contoh parent tag: <div>
