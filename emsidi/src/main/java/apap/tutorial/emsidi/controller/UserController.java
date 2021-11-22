@@ -36,16 +36,26 @@ public class UserController {
 
     @PostMapping(value="/add")
     private String addUserSubmit(@ModelAttribute UserModel user, Model model){
-        if(userService.checkPassword(user.getPassword())){
-            userService.addUser(user);
-            model.addAttribute("user", user);
-            return "redirect:/";
+        String email = user.getEmail();
+        String message2 = "";
+        String result = "";
+        if(userService.checkEmail(email)) {
+            if (userService.checkPassword(user.getPassword())) {
+                userService.addUser(user);
+                model.addAttribute("user", user);
+                result= "redirect:/";
+            } else {
+                message2 = "password invalid";
+                result = "form-add-user";
+            }
         }
         else{
-            return "form-add-user";
+            message2 = "email invalid";
+            result = "form-add-user";
         }
+        model.addAttribute("message", message2);
+        return result;
     }
-
 
     @GetMapping("/viewall")
     public String viewAllUser(
@@ -71,7 +81,6 @@ public class UserController {
     public String updatePassword(
     ){
         return "update-password";
-
     }
 
     @PostMapping("/update/password")

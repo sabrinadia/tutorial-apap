@@ -11,5 +11,6 @@ public interface UserService {
     void deleteUser(UserModel user);
     void updatePassword(UserModel user, String password);
     boolean checkPassword(String password);
+    boolean checkEmail(String email);
 
 }

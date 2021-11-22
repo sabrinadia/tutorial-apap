@@ -39,6 +39,15 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <a class="btn btn-link" href="/"> Home</a>
                     </form>
+                    <div class="justify-content-center" th:switch="${message}">
+                        <div th:case="'email invalid'">
+                            <p> Emails udah terdaftar</p>
+                        </div>
+                        <div th:case="'password invalid'">
+                            <p> Password invalid </p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

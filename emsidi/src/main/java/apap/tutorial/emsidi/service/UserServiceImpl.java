@@ -83,4 +83,22 @@ public class UserServiceImpl implements UserService{
             return false;
         }
     }
+
+    @Override
+    public boolean checkEmail(String email){
+        boolean flag = true;
+        List<UserModel> users = userDb.findAll();
+        for (UserModel a:
+             users) {
+            if(a.getEmail().equals(email)){
+                flag = false;
+            }
+
+
+        }
+
+        return flag;
+
+    }
+
 }
