@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <title>Emsidi</title>
@@ -45,8 +45,8 @@
                         <th>Buka</th>
                         <th>Tutup</th>
                         <th>Lihat</th>
-                        <th>Ubah</th>
-                        <th>Hapus</th>
+                        <th sec:authorize="hasAuthority('Manajer')">Ubah</th>
+                        <th sec:authorize="hasAuthority('Manajer')">Hapus</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -60,10 +60,10 @@
                         <td>
                             <a class="btn btn-primary" th:href="@{/cabang/view(noCabang=${cabang.noCabang})}">Detail</a>
                         </td>
-                        <td>
+                        <td sec:authorize="hasAuthority('Manajer')">
                             <a class="btn btn-warning" th:href="@{/cabang/update/} + ${cabang.noCabang}">Update</a>
                         </td>
-                        <td>
+                        <td sec:authorize="hasAuthority('Manajer')">
                             <a class="btn btn-danger" th:href="@{/cabang/delete/} +${cabang.noCabang} ">Delete</a>
                         </td>
                     </tr>

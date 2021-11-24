@@ -74,9 +74,13 @@ public class CabangServiceImpl implements CabangService {
 
         return false;
 
-
-
     }
+
+    @Override
+    public List<CabangModel> getCabangListSorted() {
+        return cabangDb.findAllByOrderByNamaCabang();
+    }
+
 
 
 }

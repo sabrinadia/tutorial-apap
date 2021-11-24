@@ -4,6 +4,48 @@
 * Nadia Sabrina - 1906399606 - A
 
 ----
+## Tutorial 6 
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode
+   yang telah anda buat) konsep tersebut diimplementasi?
+    Otentikasi - Proses identifikasi pengguna
+    Otorisasi - Proses pemberian wewenang kepada pengguna mengenai hak atau tugas tertentu
+    
+    Proses otorisasi terjadi di dalam code yang ada pada file WebSecurityConfig dimana
+   .antMatchers("/user/**").hasAuthority("Admin") --> mempunyai arti semua url yang diawali /user/ 
+    hanya dapat diakses oleh user dengan role "Admin". 
+
+    Proses otentikasi terjadi di dalam method public void configAuthentication(AuthenticationManagerBuilder auth)
+    dimana objek user dengan password berbentuk hash akan di-encode untuk kemudian masuk ke proses
+    autentikasi dengan AuthenticationManagerBuilder 
+
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya.
+    BCryptPasswordEncoder adalah sebuah encoder dan validator password yang ada pada modul spring boot security.
+    BCryptPasswordEncoder menggunakan algortima Bcrypt yang merupakan one-way encryption algorithm. Proses encoding
+    dimulai dengan penyimpanan data password berbentuk kode abstrak ke dalam database kemudian saat user login,
+    BCryptPasswordEncoder akan memanggil sebuah fungsi untuk encode kode abstrak password pengguna dan 
+    memverifikasi password dengan membandingkannya dengan input password pengguna.
+
+3. Apakah penyimpanan password sebaiknya menggunakan encryption atau hashing? Mengapa
+   demikian?
+    Hashing lebih appropriate untuk digunakan dalam penyimpanan password. 
+    Hashing merupakan one-way function yang berarti ketika sudah mengubah bentuk password ke dalam hash,
+    maka akan sulit untuk mendapatkan password semula. Di sisi lain, encryption adalah two-way function
+    sehingga proses transformasi bisa dilakukan dua arah dan memudahkan kita untuk mendapatkan password
+    dalam bentuk semula.
+    
+4. Jelaskan secara singkat apa itu UUID beserta penggunaannya!
+   UUID mempunyai kepanjangan universally unique identifier yang mana adalah label dengan ukuran 128-bit 
+    yang digunakan untuk mengidentifikasi informasi dalam sistem komputer. UUID dibuat secara acak namun
+    dijamin tidak ada yang sama di antara karakternya sehingga dapat digunakan sebagai primary key dalam 
+    sebuah model. 
+
+5. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut
+   padahal kita sudah memiliki class UserRoleServiceImpl.java?
+    UserDetailsServiceImpl berperan pada proses otentikasi pada saat tahapan penyocokan username dan password
+    yang diambil dari form login dengan data pengguna yang ada di database sedangkan RoleServiceImpl digunakan
+    untuk mendapatkan daftar role dan otoritas atau wewenang dari tiap role. 
+
+----
 ## Tutorial 5 
 
 1. Apa itu Postman? Apa kegunaannya?

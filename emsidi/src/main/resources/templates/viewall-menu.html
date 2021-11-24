@@ -48,9 +48,8 @@
                         <td th:text="${menu.noMenu}"></td>
                         <td th:text="${menu.namaMenu}"></td>
                         <td th:text="${menu.deskripsiMenu}"></td>
-                        <td th:if="${menu.isAvailable} == false">Tersedia</td>
-                        <td th:if="${menu.isAvailable} == true">Kosong</td>
-
+                        <td th:if="${menu.isAvailable} == true">Tersedia</td>
+                        <td th:if="${menu.isAvailable} == false">Kosong</td>
 
                     </tr>
                     </tbody>

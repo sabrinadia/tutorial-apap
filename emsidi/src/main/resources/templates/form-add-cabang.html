@@ -1,93 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
-
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Emsidi</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
     <object th:include="fragments/fragment :: css" th:remove="tag"></object>
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
-
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFIBw8HfCJo="
-            crossorigin="anonymous"></script>
-    <script
-            src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    </head>
 <body>
 <nav th:replace="fragments/fragment :: navbar('Cabang')"></nav>
 <div class="container">
     <div class="card m-4 p-4">
         <div class="card-body">
             <div class="justify-content-center">
-
                 <h2>Tambah Cabang Emsidi</h2>
                 <br>
                 <form th:action="@{/cabang/add}" th:object="${cabang}" method="POST">
                     Nama Cabang : <br>
-                    <input required class="form-control" type="text" name="namaCabang"/>
+                    <input required class="form-control" th:field="*{namaCabang}" type="text" name="namaCabang"/>
                     <br><br>
 
                     Alamat : <br>
-                    <input required class="form-control" type="text" name="alamatCabang"/>
+                    <input required class="form-control" th:field="*{alamatCabang}" type="text" name="alamatCabang"/>
                     <br><br>
 
                     Nomor Telepon : <br>
-                    <input required class="form-control" type="text" name="noTeleponCabang"/>
+                    <input required class="form-control" th:field="*{noTeleponCabang}" type="text" name="noTeleponCabang"/>
                     <br><br>
 
                     Waktu Buka : <br>
-                    <input required class="form-control" type="time" name="waktuBuka" />
+                    <input required class="form-control" th:field="*{waktuBuka}" type="time" name="waktuBuka" />
                     <br><br>
 
                     Waktu Tutup : <br>
-                    <input required class="form-control" type="time" name="waktuTutup" />
+                    <input required class="form-control" th:field="*{waktuTutup}" type="time" name="waktuTutup" />
                     <br><br>
 
-<!--                    NAMBAH DISINIIIIIII -->
-
-                    <table class="table">
+                    <table class="table" sec:authorize="hasAuthority('Manajer')">
                         <thead>
-                        <tr>
-                            <th> Nama Menu
-                                <input required class="form-control" type="text" name="namaMenu"/>
-
-                            </th>
-                            <th> <button type="submit" class="btn  btn-primary" name="addRow" >Tambah Row</button></th>
-                            <th>
-                            </th>
-                        </tr>
+                        <th>Nama Menu</th>
+                        <th>
+                            <button class="btn btn-primary" type="submit" name="addRow">Tambah Row</button>
+                        </th>
                         </thead>
-
                         <tbody>
                         <tr th:each="menu, iterationStatus : *{listMenu}">
-
                             <td>
-                                <div class="form-group">
-                                    <input type="text" name="nama" class="form-control" th:field="*{listMenu[__${iterationStatus.index}.__].namaMenu}"/>
-
-                                </div>
+                                <select name="noMenu" th:field="*{listMenu[__${iterationStatus.index}__].noMenu}"
+                                        class="form-control">
+                                    <div th:each="menuEx, iterationStatus2 : ${listMenuExisting}">
+                                        <option th:value="${menuEx.noMenu}" th:text="${menuEx.namaMenu}"></option>
+                                    </div>
+                                </select>
                             </td>
                             <td>
-                            <button type="submit" name="removeRow" th:value="${iterationStatus.index}" class="btn btn-block btn-danger">Hapus Row</button>
+                                <button th:value="${iterationStatus.index}" class="btn btn-danger" type="submit"
+                                        name="deleteRow">Hapus</button>
                             </td>
                         </tr>
                         </tbody>
                     </table>
 
-<!--                  NAMBAH DISINIIIIIIIIII -->
-
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-primary" type="submit" name="save">Submit</button>
                     <a class="btn btn-primary" href="/">Cancel</a>
-
-
                 </form>
-
             </div>
         </div>
     </div>
 </div>
 
-    </body>
+</body>
 </html>
