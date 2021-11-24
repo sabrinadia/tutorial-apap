@@ -4,6 +4,81 @@
 * Nadia Sabrina - 1906399606 - A
 
 ----
+## Tutorial 7 
+1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot
+sebagai ilustrasi dari apa yang Anda jelaskan
+
+No1 : Class-based 
+https://ibb.co/XSmfbPs
+https://ibb.co/D9Dr3WX
+
+
+Pada no 1, saya menyimpan daftar list item yang ada pada cart ke dalam variabel remItems kemudian
+saya membuat variabel newItem untuk merujuk ke sebuah item yang akan dihapus dari cart. Pada 
+variabel targetInd saya akan menyimpan id dari item yang akan dihapus sehingga jika targetInd 
+tidak kosong atau 0, balance akan ditambahkan dengan price dari item yang akan dihapus lalu status 
+item tersebut menjadi di luar cart (inCart = false), item dikeluarkan dari array remItems dan item 
+dikembalikan ke list shop item, serta cartItem akan digantikan menjadi list remItems. Saya juga 
+menambahkan sebuah event jika icon delete dihapus yang mana akan memanggil function penghapusan 
+item dari cart. 
+
+No 2 : Class-based
+https://ibb.co/QYv59G1
+
+Pada handleAddItem, saya mengubah balance dengan mengubah state balance menjadi balance yang sudah
+dikurangi dengan harga item yang ditambahkan ke cart dengan syarat balance awal melebihi atau sama
+dengan price item yang akan dimasukkan ke cart. Pada handleDeleteItemFromCart, saya juga mengubah
+state dari balance yang mana balance akan ditambah dengan harga dari item yang dihapus dari 
+daftar cartItem. 
+
+No 3 : Class-based
+https://ibb.co/QYv59G1
+
+Pada handleAddItem, akan terjadi proses pengecekan balance sebelum item dimasukkan ke dalam cart. 
+Jika balance kurang dari harga item yang ingin dimasukkan, maka item tersebut tidak dapat dimasukkan
+ke dalam cart dan akan muncul alert yang memberi informasi bahwa balance tidak cukup. 
+
+
+
+2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan
+props?
+
+Props berasal dari kata property dan secara konsep mirip dengan atribut pada tag HTML. 
+Props bersifat read-only sehingga umumnya digunakan untuk berkomunikasi antar component. 
+
+State merupakan data yang tersimpan pada suatu component. State bersifat private pada
+component yang memilikinya. Jika props valuenya didapatkan dari component lain, 
+state justru dapat mengubah dan menyimpan data yang dimilikinya sendiri. 
+
+Dengan demikian, props cocok digunakan untuk melakukan komunikasi antar component
+sedangkan state lebih cocok digunakan untuk mengolah data yang bersifat private. 
+
+
+3. Menurut kamu, apakah sebaiknya kita menggunakan component (e.g. List, Item) dalam
+React? sebutkan alasannya.
+
+Iya, karena component bersifat independent dan reusable. Mereka dapat berdiri sendiri
+seperti kepingan lego namun juga bisa disusun bersamaan untuk tujuan tertentu. 
+Component juga reusable yang berarti kita dapat menggunakan component
+berkali kali di sebuah application. Dengan demikian, component bersifat sangat
+fleksibel dan dapat memudahkan proses development aplikasi. 
+
+4. Apa perbedaan class component dan functional component?
+
+Class component dapat menggunakan state dan props sedangkan functional component 
+hanya dapat menggunakan props yang menyebabkan functional component disebut juga 
+dengan stateless component atau UI component karena tanpa state, component
+tersebut hanya berfokus untuk menghandle sebuah tampilan antarmuka. 
+
+5. Dalam react, apakah perbedaan component dan element?
+
+Element adalah sebuah objek paling sederhana di react yang menggambarkan hal yang kita
+ingin munculkan di halaman. Elemen dapat didefinisikan sebagai representasi virtual
+dari DOM. Di sisi lain, komponen mirip dengan function. Jika function menerima input
+berupa parameter atau argumen dan mereturn suatu nilai, komponen menerima input
+yang biasa disebut dengan props dan hasil returnnya berupa react element. 
+
+----
 ## Tutorial 6 
 1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode
    yang telah anda buat) konsep tersebut diimplementasi?
