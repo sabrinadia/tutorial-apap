@@ -55,6 +55,16 @@ export default class Home extends React.Component {
       }
       this.setState({ cartItems: remItems });
     };
+
+    handleDeleteAllItemFromCart = (item) => {
+      for(var i =0; i< this.state.cartItems.length; i++){
+        const newItem = this.state.cartItems[i];
+        // var price = newItem.price;
+        this.updateShopItem(newItem, false);
+        this.setState({balance: this.state.balance + newItem.price})
+      }
+      this.setState({ cartItems: []});
+    };
   
     updateShopItem = (item, inCart) => {
       const tempShopItems = this.state.shopItems;
@@ -96,6 +106,7 @@ export default class Home extends React.Component {
                     items={this.state.cartItems}
                     onItemClick={this.handleDeleteItemToCart}
                   ></List>
+                  <button OnClick={this.handleDeleteAllItemFromCart}> Delete All Item </button>
                 </div>
               ) : (
                 <div className="col-sm">
