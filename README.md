@@ -3,6 +3,55 @@
 
 * Nadia Sabrina - 1906399606 - A
 
+
+----
+## Tutorial 8 
+
+1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut?
+
+Pada file itemlist/index.js, terdapat function handleSubmitItem yang mengelola proses submit item dengan tambahan kode berikut:
+this.setState({
+                title: "",
+                price: 0,
+                description: "",
+                category: "",
+                quantity: 0
+            })
+
+Kode di atas berarti saat ingin menambahkan item, state dari setiap atribut akan di-set menjadi default value yaitu string kosong dan 0 sehingga setiap kali menambahkan tidak terdapat value lain yang ada pada form. 
+
+2.Jelaskan fungsi dari async dan await!
+Async dan Await adalah sebuah cara yang dapat digunakan untuk mengatasi masalah pada proses asynchronous. Await hanya dapat digunakan pada function yang mengimplementasikan async. Kembalian dari suatu function async harus berbentuk promise. Setiap baris yang menggunakan await akan menunda eksekusi sampai proses asynchronous selesai. 
+
+
+3.Masukkan jawaban dari Screenshot yang diperintahkan di halaman 9 pada Component Lifecycle pada pertanyaan ini.
+https://ibb.co/GP9tn8M
+https://ibb.co/JjtzX1L
+https://ibb.co/NV2pG2r
+https://ibb.co/NmhPvP8
+https://ibb.co/JjtzX1L
+https://ibb.co/qDZHryN
+https://ibb.co/b7DBZr3
+
+4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate,
+componentDidUpdate, componentWillReceiveProps, componentWillUnmount
+
+-ComponentDidMount : 
+Merupakan component lifecycle yang dapat dimanfaatkan untuk pengambilan data dan juga dapat digunakan sebagai penanda tahap akhir dari mounting lifecycle. Data yang diambil dapat berasal dari external atau API lainnya. Fungsi ini dipanggil saat proses loading telah selesai dilakukan pada HTML yang dirender. Digunakan pada use case pengambilan data API yang akan dirender. 
+
+-shouldComponentUpdate :
+Component yang umum dimanfaatkan pada proses untuk menampilkan perubahan pada component (bisa ditampilkan atau tidak) dan memiliki output boolean. Bernilai true jika perubahan ditampilkan dan false jika tidak ditampilkan. Fungsi akan dipanggil pada saat state atau props mengalami perubahan atau update. Digunakan pada use case pengubahan suatu komponen dan ingin melakukan proses rendering ulang. 
+
+-componentDidUpdate : 
+Umumnya dimanfaatkan untuk berinteraksi dengan environment selain React. Fungsi dijalankan ketika suatu instance dari object mengalami update. Digunakan pada use case updating component. 
+
+-componentWillReceiveProps : 
+Component yang dimanfaatkan untuk melakukan perubahan state berdasarkan current props dan new props. Fungsi dipanggil ketika terjadi update pada props. Digunakan pada use case update state. 
+
+-componentWillUnmount : 
+Component yang dimanfaatkan untuk melakukan action seperti membatalkan network request atau pembersihan timer yang invalid. Fungsi dipanggil ketika ada suatu component yang terhapus pada DOM. Digunakan pada use case penghapusan interval waktu running function. 
+
+
 ----
 ## Tutorial 7 
 1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot
@@ -10,8 +59,7 @@ sebagai ilustrasi dari apa yang Anda jelaskan
 
 No1 : Class-based 
 https://ibb.co/XSmfbPs
-https://ibb.co/D9Dr3WX
-
+https://ibb.co/dtWC04M
 
 Pada no 1, saya menyimpan daftar list item yang ada pada cart ke dalam variabel remItems kemudian
 saya membuat variabel newItem untuk merujuk ke sebuah item yang akan dihapus dari cart. Pada 
